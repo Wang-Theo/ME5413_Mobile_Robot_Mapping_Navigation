@@ -1,7 +1,7 @@
 # Operation guide to goupe member
 This is edited by ourselves. Add your new guide here to inform others.
 ## Part 1 Mapping
-Initialize FAST-LIO mapping
+1) Initialize FAST-LIO mapping
 ```
 cd ~/ME5413_Final_Project
 catkin_make
@@ -14,6 +14,24 @@ roslaunch me5413_world world.launch
 source devel/setup.bash
 roslaunch me5413_world fast_lio.launch
 ```
+After doing mapping, pointcloud `scans.pcd` will save in `src/FAST_LIO_/PCD/`
+
+2) Convert pcd pointcloud to grid map
+
+Firstly, change the filepath in `pcdtomap.launch` to your own path (in the `src/pcdtomap/launch/`)
+```
+# One terminal
+source devel/setup.bash
+roslaunch pcdtomap pcdtomap.launch
+
+# Another terminal
+cd ~/ME5413_Final_Project/src/pcdtomap/map/
+rosrun map_server map_saver
+```
+Can also find the pointcloud after filtering `map_filter.pcd` in `src/FAST_LIO_/PCD/`
+
+## Part 2 Navigation
+...... to do later
 
 # ME5413_Final_Project
 
