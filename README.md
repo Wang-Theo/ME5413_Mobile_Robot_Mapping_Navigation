@@ -3,6 +3,9 @@ This is edited by ourselves. Add your new guide here to inform others.
 ## Part 1 Mapping
 Initialize FAST-LIO mapping
 ```
+cd ~/ME5413_Final_Project
+catkin_make
+
 # One terminal
 source devel/setup.bash
 roslaunch me5413_world world.launch
