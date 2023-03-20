@@ -1,3 +1,20 @@
+# Operation guide to goupe member
+This is edited by ourselves. Add your new guide here to inform others.
+## Part 1 Mapping
+Initialize FAST-LIO mapping
+```
+cd ~/ME5413_Final_Project
+catkin_make
+
+# One terminal
+source devel/setup.bash
+roslaunch me5413_world world.launch
+
+# Another terminal
+source devel/setup.bash
+roslaunch me5413_world fast_lio.launch
+```
+
 # ME5413_Final_Project
 
 NUS ME5413 Autonomous Mobile Robotics Final Project
