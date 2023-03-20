@@ -474,6 +474,7 @@ PointCloudXYZI::Ptr pcl_wait_pub(new PointCloudXYZI(500000, 1));
 PointCloudXYZI::Ptr pcl_wait_save(new PointCloudXYZI());
 void publish_frame_world(const ros::Publisher & pubLaserCloudFull)
 {
+    float clip_ground = 0.01;
     if(scan_pub_en)
     {
         PointCloudXYZI::Ptr laserCloudFullRes(dense_pub_en ? feats_undistort : feats_down_body);
@@ -483,8 +484,11 @@ void publish_frame_world(const ros::Publisher & pubLaserCloudFull)
 
         for (int i = 0; i < size; i++)
         {
-            RGBpointBodyToWorld(&laserCloudFullRes->points[i], \
-                                &laserCloudWorld->points[i]);
+            if (laserCloudFullRes->points[i].z > clip_ground)
+            {
+                RGBpointBodyToWorld(&laserCloudFullRes->points[i], \
+                                    &laserCloudWorld->points[i]);
+            }
         }
 
         sensor_msgs::PointCloud2 laserCloudmsg;
