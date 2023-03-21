@@ -4,10 +4,15 @@
 #include <nav_msgs/OccupancyGrid.h>
 
 #include <pcl/io/pcd_io.h>
-#include <pcl/point_types.h>
 #include <pcl_conversions/pcl_conversions.h>
-#include <pcl/filters/passthrough.h>
 #include <sensor_msgs/PointCloud2.h>
+
+#include <pcl/filters/conditional_removal.h> 
+#include <pcl/filters/passthrough.h>
+#include <pcl/filters/radius_outlier_removal.h>
+#include <pcl/filters/statistical_outlier_removal.h>
+#include <pcl/filters/voxel_grid.h>
+#include <pcl/point_types.h>
 
 std::string file_directory;
 std::string file_name;
@@ -23,15 +28,23 @@ double thre_z_min = 0.3;
 double thre_z_max = 2.0;
 double map_resolution = 0.05;
 int flag_pass_through = 0;
+double thre_radius = 0.1;
+// radius filter points threshold
+int thres_point_count = 10;
 
 pcl::PointCloud<pcl::PointXYZ>::Ptr
     cloud_after_PassThrough(new pcl::PointCloud<pcl::PointXYZ>);
+pcl::PointCloud<pcl::PointXYZ>::Ptr
+    cloud_after_Radius(new pcl::PointCloud<pcl::PointXYZ>);
 pcl::PointCloud<pcl::PointXYZ>::Ptr
     pcd_cloud(new pcl::PointCloud<pcl::PointXYZ>);
 
 // pass through filter
 void PassThroughFilter(const double &thre_low, const double &thre_high,
                        const bool &flag_in);
+// radius filter
+void RadiusOutlierFilter(const pcl::PointCloud<pcl::PointXYZ>::Ptr &pcd_cloud,
+                         const double &radius, const int &thre_count);
 // convert to grid map data and publish
 void SetMapTopicMsg(const pcl::PointCloud<pcl::PointXYZ>::Ptr cloud,
                     nav_msgs::OccupancyGrid &msg);
@@ -67,8 +80,11 @@ int main(int argc, char **argv) {
 
   // pass through filter
   PassThroughFilter(thre_z_min, thre_z_max, bool(pcd_cloud));
+  // radius filter
+  // RadiusOutlierFilter(cloud_after_PassThrough, thre_radius, thres_point_count);
   // convert to grid map data and publish
   SetMapTopicMsg(cloud_after_PassThrough, map_topic_msg);
+  // SetMapTopicMsg(cloud_after_Radius, map_topic_msg);
 
   while (ros::ok()) {
     map_topic_pub.publish(map_topic_msg);
@@ -101,6 +117,25 @@ void PassThroughFilter(const double &thre_low, const double &thre_high,
                                       *cloud_after_PassThrough);
   std::cout << "pass through filter pointcloud : "
             << cloud_after_PassThrough->points.size() << std::endl;
+}
+
+// radius filter
+void RadiusOutlierFilter(const pcl::PointCloud<pcl::PointXYZ>::Ptr &pcd_cloud0,
+                         const double &radius, const int &thre_count) {
+  // create filter
+  pcl::RadiusOutlierRemoval<pcl::PointXYZ> radiusoutlier;
+  // define input pointcloud
+  radiusoutlier.setInputCloud(pcd_cloud0);
+  // set radius and find point in range
+  radiusoutlier.setRadiusSearch(radius);
+  // delete points if < threshold
+  radiusoutlier.setMinNeighborsInRadius(thre_count);
+  radiusoutlier.filter(*cloud_after_Radius);
+  // save to pcd file
+  pcl::io::savePCDFile<pcl::PointXYZ>(file_directory + "map_radius_filter.pcd",
+                                      *cloud_after_Radius);
+  std::cout << "radius filter pointcloud : " << cloud_after_Radius->points.size()
+            << std::endl;
 }
 
 // convert to grid map data and publish

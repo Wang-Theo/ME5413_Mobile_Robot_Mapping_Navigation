@@ -11,6 +11,10 @@
     <param name="thre_z_max" value= "0.2" />
     <!--0 select points in height range, １ select points out of height range -->
     <param name="flag_pass_through" value= "1" />
+    <!-- radius filter's radius-->
+    <param name="thre_radius" value= "0.3" />
+    <!-- radius filter's points required-->
+    <param name="thres_point_count" value= "10" />
     <!-- resolution of gripmap-->
     <param name="map_resolution" value= "0.05" />
     <!-- topic of gripmap, use map_server to save -->
