@@ -81,10 +81,10 @@ int main(int argc, char **argv) {
   // pass through filter
   PassThroughFilter(thre_z_min, thre_z_max, bool(pcd_cloud));
   // radius filter
-  // RadiusOutlierFilter(cloud_after_PassThrough, thre_radius, thres_point_count);
+  RadiusOutlierFilter(cloud_after_PassThrough, thre_radius, thres_point_count);
   // convert to grid map data and publish
-  SetMapTopicMsg(cloud_after_PassThrough, map_topic_msg);
-  // SetMapTopicMsg(cloud_after_Radius, map_topic_msg);
+  // SetMapTopicMsg(cloud_after_PassThrough, map_topic_msg);
+  SetMapTopicMsg(cloud_after_Radius, map_topic_msg);
 
   while (ros::ok()) {
     map_topic_pub.publish(map_topic_msg);

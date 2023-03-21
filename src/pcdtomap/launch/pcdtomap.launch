@@ -8,7 +8,7 @@
     <!-- minimum height-->
     <param name="thre_z_min" value= "-2.0" />
     <!-- maximum height-->
-    <param name="thre_z_max" value= "0.2" />
+    <param name="thre_z_max" value= "0.5" />
     <!--0 select points in height range, １ select points out of height range -->
     <param name="flag_pass_through" value= "1" />
     <!-- radius filter's radius-->
