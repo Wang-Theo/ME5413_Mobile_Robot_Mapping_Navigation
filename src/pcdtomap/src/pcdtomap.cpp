@@ -104,6 +104,7 @@ void PassThroughFilter(const double &thre_low, const double &thre_high,
   pcl::PassThrough<pcl::PointXYZ> passthrough;
   // input pointcloud
   passthrough.setInputCloud(pcd_cloud);
+
   // set operation in z axis
   passthrough.setFilterFieldName("z");
   // set height range
