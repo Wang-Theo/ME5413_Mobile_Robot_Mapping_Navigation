@@ -33,7 +33,11 @@ double thre_radius = 0.1;
 int thres_point_count = 10;
 
 pcl::PointCloud<pcl::PointXYZ>::Ptr
-    cloud_after_PassThrough(new pcl::PointCloud<pcl::PointXYZ>);
+    cloud_after_PassThrough_z(new pcl::PointCloud<pcl::PointXYZ>);
+pcl::PointCloud<pcl::PointXYZ>::Ptr
+    cloud_after_PassThrough_y(new pcl::PointCloud<pcl::PointXYZ>);
+pcl::PointCloud<pcl::PointXYZ>::Ptr
+    cloud_after_PassThrough_x(new pcl::PointCloud<pcl::PointXYZ>);
 pcl::PointCloud<pcl::PointXYZ>::Ptr
     cloud_after_Radius(new pcl::PointCloud<pcl::PointXYZ>);
 pcl::PointCloud<pcl::PointXYZ>::Ptr
@@ -81,7 +85,7 @@ int main(int argc, char **argv) {
   // pass through filter
   PassThroughFilter(thre_z_min, thre_z_max, bool(pcd_cloud));
   // radius filter
-  RadiusOutlierFilter(cloud_after_PassThrough, thre_radius, thres_point_count);
+  RadiusOutlierFilter(cloud_after_PassThrough_x, thre_radius, thres_point_count);
   // convert to grid map data and publish
   // SetMapTopicMsg(cloud_after_PassThrough, map_topic_msg);
   SetMapTopicMsg(cloud_after_Radius, map_topic_msg);
@@ -100,24 +104,51 @@ int main(int argc, char **argv) {
 // filter pointcloud using pass through
 void PassThroughFilter(const double &thre_low, const double &thre_high,
                        const bool &flag_in) {
-  // create filter
-  pcl::PassThrough<pcl::PointXYZ> passthrough;
-  // input pointcloud
-  passthrough.setInputCloud(pcd_cloud);
 
+  // create filter_z
+  pcl::PassThrough<pcl::PointXYZ> passthrough_z;
+  // input pointcloud
+  passthrough_z.setInputCloud(pcd_cloud);
   // set operation in z axis
-  passthrough.setFilterFieldName("z");
+  passthrough_z.setFilterFieldName("z");
   // set height range
-  passthrough.setFilterLimits(thre_low, thre_high);
+  passthrough_z.setFilterLimits(thre_low, thre_high);
   // true : keep points out of range / false : keep points in the range
-  passthrough.setFilterLimitsNegative(flag_in);
+  passthrough_z.setFilterLimitsNegative(flag_in);
   // do filtering and save
-  passthrough.filter(*cloud_after_PassThrough);
+  passthrough_z.filter(*cloud_after_PassThrough_z);
+
+  // create filter_y
+  pcl::PassThrough<pcl::PointXYZ> passthrough_y;
+  // input pointcloud
+  passthrough_y.setInputCloud(cloud_after_PassThrough_z);
+  // set operation in y axis
+  passthrough_y.setFilterFieldName("y");
+  // set height range
+  passthrough_y.setFilterLimits(-18, 10);
+  // true : keep points out of range / false : keep points in the range
+  passthrough_y.setFilterLimitsNegative(false);
+  // do filtering and save
+  passthrough_y.filter(*cloud_after_PassThrough_y);
+
+  // create filter_x
+  pcl::PassThrough<pcl::PointXYZ> passthrough_x;
+  // input pointcloud
+  passthrough_x.setInputCloud(cloud_after_PassThrough_y);
+  // set operation in x axis
+  passthrough_x.setFilterFieldName("x");
+  // set height range
+  passthrough_x.setFilterLimits(-10, 20);
+  // true : keep points out of range / false : keep points in the range
+  passthrough_x.setFilterLimitsNegative(false);
+  // do filtering and save
+  passthrough_x.filter(*cloud_after_PassThrough_x);
+
   // save to pcd file
   pcl::io::savePCDFile<pcl::PointXYZ>(file_directory + "map_filter.pcd",
-                                      *cloud_after_PassThrough);
+                                      *cloud_after_PassThrough_x);
   std::cout << "pass through filter pointcloud : "
-            << cloud_after_PassThrough->points.size() << std::endl;
+            << cloud_after_PassThrough_x->points.size() << std::endl;
 }
 
 // radius filter
