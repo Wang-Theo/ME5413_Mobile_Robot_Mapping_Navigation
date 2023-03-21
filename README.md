@@ -28,7 +28,9 @@ roslaunch pcdtomap pcdtomap.launch
 cd ~/ME5413_Final_Project/src/pcdtomap/map/
 rosrun map_server map_saver
 ```
-Can also find the pointcloud after filtering `map_filter.pcd` in `src/FAST_LIO_/PCD/`
+The pointcloud file after filtering `map_radius_filter.pcd` is saved in `src/FAST_LIO_/PCD/`   
+The grid map file `map.pgm` and `map.yaml` is saved in `src/pcdtomap/map/`   
+We backup copy the good result in the `/backup` folder
 
 ## Part 2 Navigation
 ...... to do later
