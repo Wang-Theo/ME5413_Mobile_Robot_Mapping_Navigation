@@ -27,15 +27,23 @@ Follow [livox_ros_driver Installation](https://github.com/Livox-SDK/livox_ros_dr
 cd ~/ME5413_Final_Project
 catkin_make
 
-# One terminal
+cd ~/ME5413_Final_Project/src/FAST_LIO_
+mkdir PCD
+
+# First terminal
 source devel/setup.bash
 roslaunch me5413_world world.launch
 
-# Another terminal
+# Second terminal
 source devel/setup.bash
 roslaunch me5413_world fast_lio.launch
+
+# Third  terminal (rosbag for EVO)
+cd ~/ME5413_Final_Project/EVO
+rosbag record /gazebo/ground_truth/state /Odometry -o EVO_perform.bag
 ```
-After doing mapping, pointcloud `scans.pcd` will save in `src/FAST_LIO_/PCD/`
+After doing mapping, pointcloud `scans.pcd` will save in `src/FAST_LIO_/PCD/`   
+Using EVO to evaluate the mapping performence : `evo_ape bag EVO_perform.bag /gazebo/ground_truth/state /Odometry -r full -va --plot --plot_mode xy`
 
 2) Convert pcd pointcloud to grid map
 
