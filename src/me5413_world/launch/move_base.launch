@@ -16,34 +16,19 @@
     <!-- <rosparam file="$(find me5413_world)/jackal_navigation/params/teb_local_planner_params.yaml" command="load" /> -->
     
 
-<<<<<<< HEAD
-    <rosparam file="$(find rrt-global-planner)/params/rrt_global_planner.yaml" command="load" />
-    <!-- <rosparam file="$(find a_better_star)/param/global_planner_params.yaml" command="load" /> -->
-    <!-- <rosparam file="$(find segment_global_planner)/param/segment_global_planner_params.yaml" command="load" /> -->
-    <!-- <rosparam file="$(find me5413_world)/jackal_navigation/params/global_planner_params.yaml" command="load" /> -->
-=======
     <!--<rosparam file="$(find rrt-global-planner)/params/rrt_global_planner.yaml" command="load" />-->
     <!-- <rosparam file="$(find a_better_star)/param/global_planner_params.yaml" command="load" /> -->
     <!-- <rosparam file="$(find segment_global_planner)/param/segment_global_planner_params.yaml" command="load" /> -->
     <rosparam file="$(find me5413_world)/jackal_navigation/params/global_planner_params.yaml" command="load" /> 
->>>>>>> 302f0eba54410206c870ee0aab7b482136addbc1
     <rosparam file="$(find me5413_world)/jackal_navigation/params/move_base_params.yaml" command="load" />
     
     
     
-<<<<<<< HEAD
-    <param name="base_global_planner" value="global_planner/RRTGlobalPlanner"/>
-    <!-- <param name="base_global_planner" value="a_better_star/GlobalPlanner"/> -->
-    <!-- <param name="base_global_planner" value="segment_global_planner/SegmentGlobalPlanner"/> -->
-    <!-- <param name="base_global_planner" value="Astar_planner/AstarPlannerROS"/> -->
-    <!-- <param name="base_global_planner" value="global_planner/GlobalPlanner"/> -->
-=======
     <!--<param name="base_global_planner" value="global_planner/RRTGlobalPlanner"/> -->
     <!-- <param name="base_global_planner" value="a_better_star/GlobalPlanner"/> -->
     <!-- <param name="base_global_planner" value="segment_global_planner/SegmentGlobalPlanner"/> -->
     <!-- <param name="base_global_planner" value="Astar_planner/AstarPlannerROS"/> -->
     <param name="base_global_planner" value="global_planner/GlobalPlanner"/>
->>>>>>> 302f0eba54410206c870ee0aab7b482136addbc1
     <!-- <param name="base_global_planner" type="string" value="navfn/NavfnROS" /> -->
 
     <!-- <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS"/> -->
