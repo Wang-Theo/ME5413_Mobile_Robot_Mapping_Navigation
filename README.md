@@ -67,7 +67,7 @@ We backup copy the good result in the `/backup` folder
 cd ~/ME5413_Final_Project
 catkin_make
 ```
-Uncomment corresponding algorithm you want to use in 'src/me5413_world/launch/move_base.launch'
+Uncomment corresponding algorithm you want to use in `src/me5413_world/launch/move_base.launch`
 ```
 # First terminal
 source devel/setup.bash
@@ -77,7 +77,7 @@ roslaunch me5413_world world.launch
 source devel/setup.bash
 roslaunch me5413_world navigation.launch
 ```
-Click the button in 'simplePanel' to select the goal pose.
+Click the button in `simplePanel` to select the goal pose.
 # ME5413_Final_Project
 
 NUS ME5413 Autonomous Mobile Robotics Final Project
