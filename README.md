@@ -42,6 +42,7 @@ Follow [livox_ros_driver Installation](https://github.com/Livox-SDK/livox_ros_dr
 
 ## Part 1 Mapping
 1) Initialize FAST-LIO mapping
+
 Before catkin_make, create a file named `include` in`src/aster_ws/src/Astar_planner`. And an empty file named`astar_planner` in it.
 ```
 cd ~/ME5413_Final_Project
