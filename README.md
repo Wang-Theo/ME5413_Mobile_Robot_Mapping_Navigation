@@ -2,16 +2,14 @@
 
 #PPT: Presentation.pptx
 
-#Video Recording: Due to size limitaion (less than 50), a compressed mp4 was: VideoRecording_Compressed.mp4
-
-and the complete and high quality uncompressed file can be found in:
+#Video Recording: 
+The complete and high quality uncompressed file can be found in:
 ----------------------------------------------------------------------------------------------------	
 https://drive.google.com/file/d/1lj-83mchuxrjdUUB504Vcz-bM367FJpr/view?usp=share_link
 -------------------------------------------------------------------------------------------------------
 
 #Map file
-A 2D projection map file is: /mapfile/map.pgm
-A 3D pointcloud map file is:/mapfile/map_pointcloud.pcd
+A 2D projection map file is: map.pgm
 
 one version of the 3D pointcloud mapping files can be download in
 ------------------------------------------------------------------------------------------------------------
