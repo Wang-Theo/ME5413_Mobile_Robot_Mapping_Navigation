@@ -68,6 +68,7 @@ cd ~/ME5413_Final_Project
 catkin_make
 ```
 Uncomment corresponding algorithm you want to use in `src/me5413_world/launch/move_base.launch`
+The parameters of planning algorithms and costmap are in corresponding `params` files.
 ```
 # First terminal
 source devel/setup.bash
