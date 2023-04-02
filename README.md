@@ -62,8 +62,22 @@ The grid map file `map.pgm` and `map.yaml` is saved in `src/pcdtomap/map/`
 We backup copy the good result in the `/backup` folder
 
 ## Part 2 Navigation
-...... to do later
+1) Initialize navigation
+```
+cd ~/ME5413_Final_Project
+catkin_make
+```
+Uncomment corresponding algorithm you want to use in 'src/me5413_world/launch/move_base.launch'
+```
+# First terminal
+source devel/setup.bash
+roslaunch me5413_world world.launch
 
+# Second terminal
+source devel/setup.bash
+roslaunch me5413_world navigation.launch
+```
+Click the button in 'simplePanel' to select the goal pose.
 # ME5413_Final_Project
 
 NUS ME5413 Autonomous Mobile Robotics Final Project
