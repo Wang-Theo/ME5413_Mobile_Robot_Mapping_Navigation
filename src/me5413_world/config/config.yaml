@@ -39,7 +39,7 @@ me5413_world:
   # delivery vehicle poses
   vehicle_1:
     x: 15.8
-    y: -9.8
+    y: -9.7
     yaw: -1.57
   vehicle_2:
     x: 3.4

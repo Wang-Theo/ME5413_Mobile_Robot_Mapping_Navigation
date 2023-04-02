@@ -1,0 +1,16 @@
+<launch>
+  <node pkg="robot_localization" type="ukf_localization_node" name="ukf_se" clear_params="true">
+    <rosparam command="load" file="$(find robot_localization)/params/ukf_template.yaml" />
+    <param name="map_frame" value="map"/>
+    <param name="odom_frame" value="odom"/>
+    <param name="base_link_frame" value="base_link"/>
+    <param name="world_frame" value="map"/>
+    <param name="odom0" value="odom"/>
+    <param name="imu0" value="/imu/data"/> 
+    <!--  Placeholder for output topic remapping
+    <remap from="odometry/filtered" to=""/>
+    <remap from="accel/filtered" to=""/>
+    -->
+
+  </node>
+</launch>

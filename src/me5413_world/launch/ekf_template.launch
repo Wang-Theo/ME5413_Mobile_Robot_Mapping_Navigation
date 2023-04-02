@@ -1,0 +1,25 @@
+<launch>
+  <!-- <arg name="base_link_frame_id" value="base_link"/>
+  <arg name="imu0" default="true"/> -->
+  <arg name="use_map_topic" default="false"/>
+
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true">
+    <rosparam command="load" file="$(find me5413_world)/launch/ekf_template.yaml" />
+    <param name="use_map_topic" value="$(arg use_map_topic)"/>
+    <!-- <remap from="/odometry/filtered" to="/odom"/> -->
+
+    <!-- <param name="map_frame" value="map"/>
+    <param name="odom_frame" value="odom"/>
+    <param name="base_link_frame" value="base_link"/>
+    <param name="world_frame" value="map"/>
+
+    <param name="odom0" value="odom"/>
+    <param name="imu0" value="/imu/data"/> 
+    <param name="odom0_differential" value="true"/>
+    <param name="imu0_differential" value="true"/> -->
+    <!--  Placeholder for output topic remapping
+    
+    <remap from="scan" to="$(arg scan_topic)"/>
+    -->
+  </node>
+</launch>
