@@ -39,6 +39,8 @@ Follow [livox_ros_driver Installation](https://github.com/Livox-SDK/livox_ros_dr
 - How to source? The easiest way is add the line ``` source $Licox_ros_driver_dir$/devel/setup.bash ``` to the end of file ``` ~/.bashrc ```, where ``` $Licox_ros_driver_dir$ ``` is the directory of the livox ros driver workspace (should be the ``` ws_livox ``` directory if you completely followed the livox official document).
 
 ## Part 1 Mapping
+![mapping_result_image](https://github.com/Wang-Theo/ME5413_Final_Project/blob/main/report/images/mapping.png)
+
 1) Initialize FAST-LIO mapping
 
 Before catkin_make, create a file named `include` in`src/aster_ws/src/Astar_planner`. And an empty file named`astar_planner` in it.
@@ -81,6 +83,8 @@ The grid map file `map.pgm` and `map.yaml` is saved in `src/pcdtomap/map/`
 We backup copy the good result in the `/backup` folder
 
 ## Part 2 Navigation
+![naviagation_result_image](https://github.com/Wang-Theo/ME5413_Final_Project/blob/main/report/images/navigation_result.png)
+
 1) Initialize navigation
 ```
 cd ~/ME5413_Final_Project
@@ -100,6 +104,8 @@ source devel/setup.bash
 roslaunch me5413_world navigation.launch
 ```
 Choose corresponding topic in `global path` and click the button in `simplePanel` to select the goal pose.
+
+****
 # ME5413_Final_Project
 
 NUS ME5413 Autonomous Mobile Robotics Final Project
