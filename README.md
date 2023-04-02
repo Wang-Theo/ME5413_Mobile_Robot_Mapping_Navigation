@@ -88,6 +88,7 @@ catkin_make
 ```
 Uncomment corresponding algorithm you want to use in `src/me5413_world/launch/move_base.launch`
 The parameters of planning algorithms and costmap are in corresponding `params` files.
+For localization, amcl,ekf_template and robot_pose_ekf had been used. Then, the global planner has three choice can be select, finally, the local planner has two method had been provide. Pick the corrspending choice and comment specific command in those files can implement them.
 ```
 # First terminal
 source devel/setup.bash
