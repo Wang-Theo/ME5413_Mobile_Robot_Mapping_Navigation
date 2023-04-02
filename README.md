@@ -16,8 +16,7 @@ one version of the 3D pointcloud mapping files can be download in
 https://drive.google.com/file/d/19SF8SPli2iWed0avGKpOY63t1eXppWkJ/view?usp=share_link
 ------------------------------------------------------------------------------------------------------------
 
-# Operation guide to goupe member
-This is edited by ourselves. Add your new guide here to inform others.
+# Operation guide
 
 ## 1. Prerequisites
 ### 1.1 **Ubuntu** and **ROS**
