@@ -1,5 +1,22 @@
-# Operation guide to goupe member
-This is edited by ourselves. Add your new guide here to inform others.
+#Report: Group18_FinalProject.pdf
+
+#PPT: Presentation.pptx
+
+#Video Recording: 
+The complete and high quality uncompressed file can be found in:
+----------------------------------------------------------------------------------------------------	
+https://drive.google.com/file/d/1lj-83mchuxrjdUUB504Vcz-bM367FJpr/view?usp=share_link
+-------------------------------------------------------------------------------------------------------
+
+#Map file
+A 2D projection map file is: map.pgm
+
+one version of the 3D pointcloud mapping files can be download in
+------------------------------------------------------------------------------------------------------------
+https://drive.google.com/file/d/19SF8SPli2iWed0avGKpOY63t1eXppWkJ/view?usp=share_link
+------------------------------------------------------------------------------------------------------------
+
+# Operation guide
 
 ## 1. Prerequisites
 ### 1.1 **Ubuntu** and **ROS**
@@ -22,7 +39,11 @@ Follow [livox_ros_driver Installation](https://github.com/Livox-SDK/livox_ros_dr
 - How to source? The easiest way is add the line ``` source $Licox_ros_driver_dir$/devel/setup.bash ``` to the end of file ``` ~/.bashrc ```, where ``` $Licox_ros_driver_dir$ ``` is the directory of the livox ros driver workspace (should be the ``` ws_livox ``` directory if you completely followed the livox official document).
 
 ## Part 1 Mapping
+![mapping_result_image](https://github.com/Wang-Theo/ME5413_Final_Project/blob/main/report/images/mapping.png)
+
 1) Initialize FAST-LIO mapping
+
+Before catkin_make, create a file named `include` in`src/aster_ws/src/Astar_planner`. And an empty file named`astar_planner` in it.
 ```
 cd ~/ME5413_Final_Project
 catkin_make
@@ -62,6 +83,8 @@ The grid map file `map.pgm` and `map.yaml` is saved in `src/pcdtomap/map/`
 We backup copy the good result in the `/backup` folder
 
 ## Part 2 Navigation
+![naviagation_result_image](https://github.com/Wang-Theo/ME5413_Final_Project/blob/main/report/images/navigation_result.png)
+
 1) Initialize navigation
 ```
 cd ~/ME5413_Final_Project
@@ -69,6 +92,8 @@ catkin_make
 ```
 Uncomment corresponding algorithm you want to use in `src/me5413_world/launch/move_base.launch`
 The parameters of planning algorithms and costmap are in corresponding `params` files.
+For localization, amcl, ekf_template and robot_pose_ekf had been used. Then, the global planner has three choice can be select, finally, the local planner has two method had been provide. Pick the corrspending choice and comment specific command in those files can implement them.
+To start, 
 ```
 # First terminal
 source devel/setup.bash
@@ -78,7 +103,9 @@ roslaunch me5413_world world.launch
 source devel/setup.bash
 roslaunch me5413_world navigation.launch
 ```
-Click the button in `simplePanel` to select the goal pose.
+Choose corresponding topic in `global path` and click the button in `simplePanel` to select the goal pose.
+
+****
 # ME5413_Final_Project
 
 NUS ME5413 Autonomous Mobile Robotics Final Project
