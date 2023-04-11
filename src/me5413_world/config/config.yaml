@@ -28,7 +28,7 @@ me5413_world:
     y: -0.6
     yaw: -1.57
   packing_area_3:
-    x: 10.0
+    x: 9.9 #10
     y: -3.5
     yaw: -1.57
   packing_area_4:
@@ -39,7 +39,7 @@ me5413_world:
   # delivery vehicle poses
   vehicle_1:
     x: 15.8
-    y: -9.7
+    y: -9.6
     yaw: -1.57
   vehicle_2:
     x: 3.4

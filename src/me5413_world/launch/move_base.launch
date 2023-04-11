@@ -11,9 +11,9 @@
     <rosparam file="$(find me5413_world)/jackal_navigation/params/prohibition_areas.yaml" command="load" ns="global_costmap/costmap_prohibition_layer" />
     <rosparam file="$(find me5413_world)/jackal_navigation/params/prohibition_areas.yaml" command="load" ns="local_costmap/costmap_prohibition_layer" />
     
-    <rosparam file="$(find me5413_world)/jackal_navigation/params/dwa_local_planner_params.yaml" command="load" />
+    <!-- <rosparam file="$(find me5413_world)/jackal_navigation/params/dwa_local_planner_params.yaml" command="load" /> -->
     <!-- <rosparam file="$(find jackal_navigation)/params/base_local_planner_params.yaml" command="load" /> -->
-    <!-- <rosparam file="$(find me5413_world)/jackal_navigation/params/teb_local_planner_params.yaml" command="load" /> -->
+    <rosparam file="$(find me5413_world)/jackal_navigation/params/teb_local_planner_params.yaml" command="load" />
     
 
     <!--<rosparam file="$(find rrt-global-planner)/params/rrt_global_planner.yaml" command="load" />-->
@@ -31,9 +31,9 @@
     <param name="base_global_planner" value="global_planner/GlobalPlanner"/>
     <!-- <param name="base_global_planner" type="string" value="navfn/NavfnROS" /> -->
 
-    <!-- <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS"/> -->
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS"/>
     <!-- <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/> -->
-    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    <!-- <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" /> -->
     
 
     <remap from="odom" to="odometry/filtered" />
