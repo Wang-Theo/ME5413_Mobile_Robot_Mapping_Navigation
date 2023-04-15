@@ -51,7 +51,8 @@ sudo apt-get install ros-noetic-navigation
 ### 1.6 folder needed
 create a folder named `include` in`src/aster_ws/src/Astar_planner`. And an empty folder named`astar_planner` in it.
 
-## Part 1 Mapping
+## 2. Execution
+### Part 1 Mapping
 ![mapping_result_image](https://github.com/Wang-Theo/ME5413_Final_Project/blob/main/report/images/mapping.png)
 
 1) Initialize FAST-LIO mapping
@@ -94,7 +95,7 @@ The pointcloud file after filtering `map_radius_filter.pcd` is saved in `src/FAS
 The grid map file `map.pgm` and `map.yaml` is saved in `src/pcdtomap/map/`   
 We backup copy the good result in the `/backup` folder
 
-## Part 2 Navigation
+### Part 2 Navigation
 ![naviagation_result_image](https://github.com/Wang-Theo/ME5413_Final_Project/blob/main/report/images/navigation_result.png)
 
 1) Initialize navigation
