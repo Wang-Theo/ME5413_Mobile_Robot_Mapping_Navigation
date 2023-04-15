@@ -43,12 +43,19 @@ Follow [livox_ros_driver Installation](https://github.com/Livox-SDK/livox_ros_dr
 sudo apt-get install ros-noetic-robot-pose-ekf
 ```
 
+### 1.5 navigation global_planner
+```
+sudo apt-get install ros-noetic-navigation
+```
+
+### 1.6 folder needed
+create a folder named `include` in`src/aster_ws/src/Astar_planner`. And an empty folder named`astar_planner` in it.
+
 ## Part 1 Mapping
 ![mapping_result_image](https://github.com/Wang-Theo/ME5413_Final_Project/blob/main/report/images/mapping.png)
 
 1) Initialize FAST-LIO mapping
 
-Before catkin_make, create a file named `include` in`src/aster_ws/src/Astar_planner`. And an empty file named`astar_planner` in it.
 ```
 cd ~/ME5413_Final_Project
 catkin_make
