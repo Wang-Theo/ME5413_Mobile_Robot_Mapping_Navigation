@@ -9,7 +9,7 @@ This is the **ME5413 Autonomous Mobile Robotics @ NUS** Final Project finished b
 
 Please consider referring to original readme of original project provided: [Porject README Link](project_intro/README.md)
 
-<img src="src/me5413_world/media/gazebo_world.jpg" width="400" alt="virtual_factory"/><img src="report/images/map_info.png" width="300" alt="map_info"/>
+<img src="src/me5413_world/media/gazebo_world.jpg" width="450" alt="virtual_factory"/><img src="report/images/map_info.png" width="350" alt="map_info"/>
 
 ## 1. Project Decription
 A mini-factory environment provided in Gazebo. 
