@@ -1,4 +1,4 @@
-# Autonomous Mobile Mapping & Navigation in Virtual Factory
+# Autonomous Mobile Robot Mapping & Navigation in Virtual Factory
 
 ![Ubuntu 20.04](https://img.shields.io/badge/OS-Ubuntu_20.04-informational?style=flat&logo=ubuntu&logoColor=white&color=2bbc8a)
 ![ROS Noetic](https://img.shields.io/badge/Tools-ROS_Noetic-informational?style=flat&logo=ROS&logoColor=white&color=2bbc8a)
@@ -7,9 +7,9 @@
 
 This is the **ME5413 Autonomous Mobile Robotics @ NUS** Final Project finished by Group18
 
-Please consider referring to original readme of original project provided: [Porject README Link](https://github.com/Wang-Theo/ME5413_Final_Project/blob/main/project_intro/README.md)
+Please consider referring to original readme of original project provided: [Porject README Link](project_intro/README.md)
 
-<img src="src/me5413_world/media/gazebo_world.jpg" width="600" alt="virtual_factory"/>
+<img src="src/me5413_world/media/gazebo_world.jpg" width="500" alt="virtual_factory"/><img src="report/images/map_info.png" width="400" alt="map_info"/>
 
 ## 1. Project Decription
 A mini-factory environment provided in Gazebo. 
@@ -63,16 +63,16 @@ create a folder named `include` in`src/aster_ws/src/Astar_planner`. And an empty
 
 ## 3. Execution
 ### Part 1 Mapping
-* Build
+#### 3.1.1 Build
 ```
-cd ~/ME5413_Final_Project
+cd ~/ME5413_Mobile_Robot_Mapping_Navigation
 catkin_make
 
-cd ~/ME5413_Final_Project/src/FAST_LIO_
+cd ~/ME5413_Mobile_Robot_Mapping_Navigation/src/FAST_LIO_
 mkdir PCD
 ```
 
-* Run FAST-LIO
+#### 3.1.2 Run FAST-LIO
 ```
 # First terminal
 source devel/setup.bash
@@ -82,20 +82,20 @@ roslaunch me5413_world world.launch
 source devel/setup.bash
 roslaunch me5413_world fast_lio.launch
 ```
-<img src="https://github.com/Wang-Theo/ME5413_Final_Project/blob/main/report/images/mapping.png" width="600" alt="mapping_result_image"/>
+<img src="report/images/mapping.png" width="600" alt="mapping_result_image"/>
 
-* EVO evaluation
+#### 3.1.3 EVO evaluation
 ```
 # Third  terminal (rosbag for EVO)
-cd ~/ME5413_Final_Project/EVO
+cd ~/ME5413_Mobile_Robot_Mapping_Navigation/EVO
 rosbag record /gazebo/ground_truth/state /Odometry -o EVO_perform.bag
 ```
 After doing mapping, pointcloud `scans.pcd` will save in `src/FAST_LIO_/PCD/`   
 Using EVO to evaluate the mapping performence : `evo_ape bag EVO_perform.bag /gazebo/ground_truth/state /Odometry -r full -va --plot --plot_mode xy`
 
-<img src="https://github.com/Wang-Theo/ME5413_Final_Project/blob/main/EVO/EVO.png" width="600" alt="evo"/>
+<img src="EVO/EVO.png" width="600" alt="evo"/>
 
-* Convert pcd pointcloud to grid map
+#### 3.1.4 Convert pcd pointcloud to grid map
 
 Firstly, change the filepath in `pcdtomap.launch` to your own path (in the `src/pcdtomap/launch/`)
 ```
@@ -104,17 +104,19 @@ source devel/setup.bash
 roslaunch pcdtomap pcdtomap.launch
 
 # Another terminal
-cd ~/ME5413_Final_Project/src/pcdtomap/map/
+cd ~/ME5413_Mobile_Robot_Mapping_Navigation/src/pcdtomap/map/
 rosrun map_server map_saver
 ```
 The pointcloud file after filtering `map_radius_filter.pcd` is saved in `src/FAST_LIO_/PCD/`   
 The grid map file `map.pgm` and `map.yaml` is saved in `src/pcdtomap/map/`   
 We backup copy the good result in the `/backup` folder
 
+<img src="report/images/2D_projection.png" width="250" alt="2d_map"/>
+
 ### Part 2 Navigation
-* Build
+#### 3.2.1 Build
 ```
-cd ~/ME5413_Final_Project
+cd ~/ME5413_Mobile_Robot_Mapping_Navigation
 catkin_make
 ```
 *Remarks:*
@@ -122,7 +124,7 @@ catkin_make
 2. The parameters of planning algorithms and costmap are in corresponding `params` files.
 3. For localization, **amcl**, **ekf_template** and **robot_pose_ekf** had been used. Then, the global planner has three choice can be select, finally, the local planner has two method had been provide. Pick the corrspending choice and comment specific command in those files can implement them.
 
-* Run navigation
+#### 3.2.2 Run navigation
 ```
 # First terminal
 source devel/setup.bash
