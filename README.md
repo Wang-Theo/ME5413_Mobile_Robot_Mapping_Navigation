@@ -9,7 +9,7 @@ This is the **ME5413 Autonomous Mobile Robotics @ NUS** Final Project finished b
 
 Please consider referring to original readme of original project provided: [Porject README Link](project_intro/README.md)
 
-<img src="src/me5413_world/media/gazebo_world.jpg" width="500" alt="virtual_factory"/><img src="report/images/map_info.png" width="400" alt="map_info"/>
+<img src="src/me5413_world/media/gazebo_world.jpg" width="400" alt="virtual_factory"/><img src="report/images/map_info.png" width="300" alt="map_info"/>
 
 ## 1. Project Decription
 A mini-factory environment provided in Gazebo. 
@@ -111,7 +111,7 @@ The pointcloud file after filtering `map_radius_filter.pcd` is saved in `src/FAS
 The grid map file `map.pgm` and `map.yaml` is saved in `src/pcdtomap/map/`   
 We backup copy the good result in the `/backup` folder
 
-<img src="report/images/2D_projection.png" width="250" alt="2d_map"/>
+<img src="report/images/2D_projection.png" width="200" alt="2d_map"/>
 
 ### Part 2 Navigation
 #### 3.2.1 Build
