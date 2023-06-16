@@ -11,7 +11,13 @@ Please consider referring to original readme of original project provided: [Porj
 
 <img src="src/me5413_world/media/gazebo_world.jpg" width="450" alt="virtual_factory"/><img src="report/images/map_info.png" width="350" alt="map_info"/>
 
-## 1. Project Decription
+## Table of Contents
+- [Project Decription](#1)
+- [Prerequisites](#2)
+- [Execution](#3)
+- [Acknowledge](#4)
+
+<h2 id="1"> 1. Project Decription</h2>
 A mini-factory environment provided in Gazebo. 
 * 3 accessible areas
 * 1 inaccessible area
@@ -32,7 +38,7 @@ Two main tasks included: **Mapping** & **Navigation**
   1) one 2D projection map file **map.pgm**
   2) one 3D pointcloud mapping file **map_pointcloud.pcd** available in :[Google Drive Link](https://drive.google.com/file/d/19SF8SPli2iWed0avGKpOY63t1eXppWkJ/view?usp=share_link)
 
-## 2. Prerequisites
+<h2 id="2"> 2. Prerequisites</h2>
 ### 2.1 **Ubuntu** and **ROS**
 * Ubuntu >= 18.04
 * ROS    >= Melodic. [ROS Installation](http://wiki.ros.org/ROS/Installation)
@@ -61,8 +67,10 @@ sudo apt-get install ros-noetic-navigation
 ### 2.6 folder to be created
 create a folder named `include` in`src/aster_ws/src/Astar_planner`. And an empty folder named `astar_planner` in it.
 
-## 3. Execution
+<h2 id="3"> 3. Execution</h2>
+
 ### Part 1 Mapping
+
 #### 3.1.1 Build
 ```
 cd ~/ME5413_Mobile_Robot_Mapping_Navigation
@@ -138,7 +146,7 @@ Choose corresponding topic in `global path` and click the button in `simplePanel
 
 <img src="report/images/navigation_result.png" width="500" alt="naviagation_result_image"/>
 
-## Acknowledge
+<h2 id="4"> Acknowledge</h2>
 
 This project is finished from **NUS ME5413 Autonomous Mobile Robotics**
 
