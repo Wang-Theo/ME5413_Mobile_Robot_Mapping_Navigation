@@ -82,7 +82,7 @@ roslaunch me5413_world world.launch
 source devel/setup.bash
 roslaunch me5413_world fast_lio.launch
 ```
-<img src="report/images/mapping.png" width="600" alt="mapping_result_image"/>
+<img src="report/images/mapping.png" width="500" alt="mapping_result_image"/>
 
 #### 3.1.3 EVO evaluation
 ```
@@ -93,7 +93,7 @@ rosbag record /gazebo/ground_truth/state /Odometry -o EVO_perform.bag
 After doing mapping, pointcloud `scans.pcd` will save in `src/FAST_LIO_/PCD/`   
 Using EVO to evaluate the mapping performence : `evo_ape bag EVO_perform.bag /gazebo/ground_truth/state /Odometry -r full -va --plot --plot_mode xy`
 
-<img src="EVO/EVO.png" width="600" alt="evo"/>
+<img src="EVO/EVO.png" width="500" alt="evo"/>
 
 #### 3.1.4 Convert pcd pointcloud to grid map
 
@@ -111,7 +111,7 @@ The pointcloud file after filtering `map_radius_filter.pcd` is saved in `src/FAS
 The grid map file `map.pgm` and `map.yaml` is saved in `src/pcdtomap/map/`   
 We backup copy the good result in the `/backup` folder
 
-<img src="report/images/2D_projection.png" width="200" alt="2d_map"/>
+<img src="report/images/2D_projection.png" width="150" alt="2d_map"/>
 
 ### Part 2 Navigation
 #### 3.2.1 Build
@@ -136,7 +136,7 @@ roslaunch me5413_world navigation.launch
 ```
 Choose corresponding topic in `global path` and click the button in `simplePanel` to select the goal pose.
 
-<img src="https://github.com/Wang-Theo/ME5413_Final_Project/blob/main/report/images/navigation_result.png" width="600" alt="naviagation_result_image"/>
+<img src="report/images/navigation_result.png" width="500" alt="naviagation_result_image"/>
 
 ## Acknowledge
 
