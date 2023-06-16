@@ -18,6 +18,7 @@ Please consider referring to original readme of original project provided: [Porj
 - [Acknowledge](#4)
 
 <h2 id="1"> 1. Project Decription</h2>
+
 A mini-factory environment provided in Gazebo. 
 * 3 accessible areas
 * 1 inaccessible area
@@ -39,6 +40,7 @@ Two main tasks included: **Mapping** & **Navigation**
   2) one 3D pointcloud mapping file **map_pointcloud.pcd** available in :[Google Drive Link](https://drive.google.com/file/d/19SF8SPli2iWed0avGKpOY63t1eXppWkJ/view?usp=share_link)
 
 <h2 id="2"> 2. Prerequisites</h2>
+
 ### 2.1 **Ubuntu** and **ROS**
 * Ubuntu >= 18.04
 * ROS    >= Melodic. [ROS Installation](http://wiki.ros.org/ROS/Installation)
