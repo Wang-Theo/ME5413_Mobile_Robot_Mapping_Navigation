@@ -34,7 +34,9 @@ Two main tasks included: **Mapping** & **Navigation**
 **Files included:**
 * Report: Group18_FinalProject.pdf
 * PPT: Presentation.pptx
-* Video Recording: one **Video_Uncompressed.mp4** file available in: [Google Drive Link](https://drive.google.com/file/d/1lj-83mchuxrjdUUB504Vcz-bM367FJpr/view?usp=share_link)
+* Video Recording:
+  * Mapping: one **fastlio.mp4** file available in: [Google Drive Link](https://drive.google.com/file/d/1EEQBYImnJs4QajZ1OG1U6qmV-J9dTWL5/view?usp=drive_link)
+  * Navigation: one **Video_Uncompressed.mp4** file available in: [Google Drive Link](https://drive.google.com/file/d/1lj-83mchuxrjdUUB504Vcz-bM367FJpr/view?usp=share_link)
 * Map file: 
   1) one 2D projection map file **map.pgm**
   2) one 3D pointcloud mapping file **map_pointcloud.pcd** available in :[Google Drive Link](https://drive.google.com/file/d/19SF8SPli2iWed0avGKpOY63t1eXppWkJ/view?usp=share_link)
